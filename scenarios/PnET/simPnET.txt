@@ -1,0 +1,32 @@
+LandisData Scenario
+
+Duration 100
+Species speciesPnETOrBioSuccession.txt 
+Ecoregions ecoregionsPnET.txt
+EcoregionsMap ../../ParametersCreation/ecoregionsPnET.tif
+
+CellLength 100 << m 
+
+>> Succession Extension Initialization File
+>> -------------------- -------------------
+PnET-Succession   PnET-Succession.txt
+
+
+>> Disturbance Extensions   Initialization File
+>> ----------------------   -------------------
+>> "Biomass Harvest"	    
+>> "Base Wind"          
+>> "Base BDA"        
+>> "Base Fire"       
+
+DisturbancesRandomOrder  no
+
+
+>>    Other Extensions      Initialization File
+>> ----------------------   -------------------
+>> "Output Biomass Community"    
+>>"Output-PnET"		     
+>>"Output Cohort Statistics"   
+>>"Output Biomass-by-Age"       
+"Output Biomass"			"Outputs-BiomassOutput.txt"
+   

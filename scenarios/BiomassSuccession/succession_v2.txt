@@ -1,0 +1,130 @@
+LandisData "Biomass Succession"
+
+Timestep 5
+
+SeedingAlgorithm NoDispersal
+>> Also NoDispersal or UniversalDispersal
+
+InitialCommunities "../../ParametersCreation/initialCommunitiesComparisonPnETBioSuccession.txt"
+InitialCommunitiesMap "../../ParametersCreation/initialCommunitiesPnetAndBioSuccession.tif"
+
+>> ClimateConfigFile can be inserted here
+
+CalibrateMode no << optional parameter
+
+SpinupMortalityFraction 0.01 << supplementary mortality during initiation of biomass
+
+>> **********************
+   MinRelativeBiomass
+
+>> Shade
+>> Class Ecoregions
+>> ----- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		  236
+      1   20%
+      2   40%
+      3   50%
+      4   70%
+      5   90%
+
+>> ****************************
+SufficientLight
+>> Spp Shade            Probability
+>> Class                by Actual Shade
+>> ----------  ---------------------------------
+>>             0     1     2     3     4     5
+     1         1     0.5   0     0     0     0
+     2         1     1     0.5   0     0     0
+     3         1     1     1     0.5   0     0
+     4         1     1     1     1     0.5   0
+     5         1     1     1     1     1     1
+>> **************************************************
+SpeciesParameters
+>> Species    Leaf       Woody       Mortal Growth   Leaf
+>>            Longevity  Decay Rate  Shape Curve     Lignin%
+>> --------   ---------  ----------  --------------- ------
+   ABIE.BAL    3         0.062        25      0        0.2
+   BETU.ALL    1         0.07         15      1        0.1
+   BETU.PAP    1         0.07         25      0        0.1
+   LARI.LAR    1         0.02         25      0        0.2
+   PICE.GLA    3         0.02         15      1        0.2
+   PICE.MAR    3         0.02         15      1        0.2
+   PINU.BAN    2         0.01         25      0        0.2
+   POPU.TRE    1         0.07         25      0        0.1
+>> ****************************
+EcoregionParameters
+>>      AET
+>>      mm
+
+    236 600
+
+
+DynamicInputFile biomass-succession-dynamic-inputs_Baseline_v2.txt
+
+>> Apparently useless since the last version. It's in the exemples of the manual and
+>> in the files of Yan's team, but LANDIS-II won't take it and want direct parameters in
+>> this file.
+>> AgeOnlyDisturbances:BiomassParameters ./input/succession/age-only-disturbances.txt
+
+>> This parametrization is made pretty randomly by me. I try to interpret
+>> what is in the age-only-disturbance.txt that Yan's team gave me.
+>> Nothing solid.
+FireReductionParameters
+>> Fire Severity      Wood Reduction      Litter Reduction
+>> -------------      --------------      ----------------
+        1                   0                    0.3
+        2                   0.1                  0.4
+		3                   0.3                  0.6
+		4                   0.4                  0.8
+		5                   0.5                  1
+
+HarvestReductionParameters
+>> Most of these are estimated arbitrarly, as they are not useful to our study.
+>> 		Prescription     	Dead Wood     Dead Litter     Cohort wood     Cohort Leaf
+>>     		name         	Reduction      Reduction        Removal         Removal
+>> 		-------------    	---------     ------------    ------------    ------------
+		CPRS-ABIE.BAL                         0.5        0.2        0.9        0.5
+		CPRS-ACER.RUB                         0.5        0.2        0.9        0.5
+		CPRS-ACER.SAH                         0.5        0.2        0.9        0.5
+		CPRS-BETU.ALL                         0.5        0.2        0.9        0.5
+		CPRS-BETU.PAP                         0.5        0.2        0.9        0.5
+		CPRS-FAGU.GRA                         0.5        0.2        0.9        0.5
+		CPRS-LARI.LAR                         0.5        0.2        0.9        0.5
+		CPRS-PICE.GLA                         0.5        0.2        0.9        0.5
+		CPRS-PICE.MAR                         0.5        0.2        0.9        0.5
+		CPRS-PICE.RUB                         0.5        0.2        0.9        0.5
+		CPRS-PINU.BAN                         0.5        0.2        0.9        0.5
+		CPRS-PINU.RES                         0.5        0.2        0.9        0.5
+		CPRS-PINU.STR                         0.5        0.2        0.9        0.5
+		CPRS-POPU.TRE                         0.5        0.2        0.9        0.5
+		CPRS-QUER.RUB                         0.5        0.2        0.9        0.5
+		CPRS-THUJ.SPP.ALL                     0.5        0.2        0.9        0.5
+		CPRS-TSUG.CAN                         0.5        0.2        0.9        0.5
+		CPRS-POPU.HYB                         0.5        0.2        0.9        0.5
+		CPRS-LARI.HYB                         0.5        0.2        0.9        0.5
+		CPRS-LARI.HYB/PICE.GLA                0.5        0.2        0.9        0.5
+		CPRS-POPU.HYB/PICE.GLA                0.5        0.2        0.9        0.5
+		CPRS-NOPLANT            	          0.5        0.2        0.9        0.5
+		CPI-CP                               0.15        0.1        0.4       0.25
+		Thinning                              0.5        0.2        0.9        0.5
+		MegaFire-100%Effect                   0.6        0.6        0.9        0.9
+		MegaFire-90%Effect                    0.6        0.6        0.9        0.9
+		MegaFire-80%Effect                    0.6        0.6        0.9        0.9
+		MegaFire-70%Effect                    0.6        0.6        0.9        0.9
+		MegaFire-60%Effect                    0.6        0.6        0.9        0.9
+		MegaDrought-100%Effect               0.01       0.01        0.9        0.9
+		MegaDrought-95%Effect                0.01       0.01        0.9        0.9
+		MegaDrought-90%Effect                0.01       0.01        0.9        0.9
+		MegaDrought-85%Effect                0.01       0.01        0.9        0.9
+		MegaDrought-80%Effect                0.01       0.01        0.9        0.9
+		MountainPineBeetle-100%Effect         0.1        0.1        0.5        0.8
+		MountainPineBeetle-91.4%Effect        0.1        0.1        0.5        0.8
+		MountainPineBeetle-82.8%Effect        0.1        0.1        0.5        0.8
+		MountainPineBeetle-74.2%Effect        0.1        0.1        0.5        0.8
+		MountainPineBeetle-65.6%Effect        0.1        0.1        0.5        0.8
+		MountainPineBeetle-57%Effect          0.1        0.1        0.5        0.8
+		MountainPineBeetle-48.4%Effect        0.1        0.1        0.5        0.8
+		MountainPineBeetle-39.8%Effect        0.1        0.1        0.5        0.8
+		MountainPineBeetle-31.2%Effect        0.1        0.1        0.5        0.8
+		MountainPineBeetle-22.6%Effect        0.1        0.1        0.5        0.8

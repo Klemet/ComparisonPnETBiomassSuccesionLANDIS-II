@@ -1,0 +1,6 @@
+LandisData Ecoregions
+>> Map
+>> Active Code Name Description
+>> ------ ---- ----- -----------
+yes 102 ecoregion5d_SandLoam "ecoregion5d_SandLoam"
+no  0   vide         "emptycells"         

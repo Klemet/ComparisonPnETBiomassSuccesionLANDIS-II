@@ -1,0 +1,23 @@
+LandisData PnETGenericParameters
+PnETGenericParameters Value
+>> Some PnET parameters (e.g., SLWDel, Q10, DVPD1, DVPD2) are hard to estimate and most studies use generic values (e.g., Aber et al 1995, Ollinger and Smith 2005).
+>>------------------------------------
+DVPD1				0.05 << GUSTAFSTON uses
+DVPD2				2 
+Q10				2  <<GUSTAFSTON uses
+FolLignin			0.2 <<GUSTAFSTON uses
+InitialNSC 			7 
+DNSC				0.05  <<target NSCfraction (GUSTAFSTON=0.05) has little effect on cohort competition unless so low that cohort has minimal reserves to survive stress, or so high that species can rarely be stressed enough to die.
+PsnAgeRed			3 << A value of 3 seems to work well for all species in the boreal biome, GUSTAFSTON proposed 5 for temperate forest species. However, our value allows us to control most aspects of the shape of the biomass growth curve of Pothier and Savard [1998]  
+>>BFolResp 0.1
+CFracBiomass			0.47 << C content of biomass (IPCC value)
+PreventEstablishment	false<< true during the calibration since we are calibrating monoculture species and we followed  single cohort. equal=false for simulation at the  landscape scale
+TOwood 0.01 << GUSTAFSTON uses
+TOroot 0.02 << GUSTAFSTON uses .02 ? (0.016 McKenzie et al. 2019 ) both values were tested
+MaxCanopyLayers			3
+MaxDevLyrAv 10000
+IMAX 5
+MaxPest 0.43 >> MaxPest is dependent on the PnET-Succession time step, meaning that you must reset its value when you change the time step. 
+wythers true
+PrecipEvents	11
+Dtemp true  >> True=eric's "new" way of doing it like pnet-II.  False="Arjan's" old way of doing it using ftemp. 

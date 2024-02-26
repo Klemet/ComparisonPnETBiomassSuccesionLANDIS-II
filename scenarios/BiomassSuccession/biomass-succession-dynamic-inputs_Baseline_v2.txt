@@ -1,0 +1,23 @@
+LandisData "Dynamic Input Data"
+
+>> Data from this file comes from Yan Boulanger's team.
+>> It has been edited in Libreoffice Calc to add the species LARI.HYB and POPU.HYB.
+>> LARY.HYB has a maxB 15% higher and maxANPP 100% higher than LARI.LAR.
+>> POPU.HYB has a maxAPP 100% higher than POPU.TRE.
+
+>> WARNING : This file have been bias-corrected according to Yan's instruction from his 26-08-2022 e-mail.
+>> This correction will account for the biomass that was much too important in the landscape in previous simulations
+>> for chapter 3 (< v0.37)
+>> All maxANPP and maxB have been multiplied by 0.643475324 (including ALBIE.BAL)
+>> Then, the maxANPP and maxB of ABIE.BAL has been multiplied by 1.859746925
+
+>>year	landtype		species			probEst		maxANPP			maxB
+	0          236        ABIE.BAL          0.491      485        3865       
+	0          236        BETU.ALL          0.461      552        5186       
+	0          236        BETU.PAP          0.559      458        3106       
+	0          236        LARI.LAR          0.559      297        2427       
+	0          236        PICE.GLA          0.461      674        9363       
+	0          236        PICE.MAR          0.409      809        8547       
+	0          236        PINU.BAN          0.559      936        8559       
+	0          236        POPU.TRE          0.559      894        6658       
+   

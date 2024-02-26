@@ -1,0 +1,17 @@
+LandisData "PnET-Succession"
+PnET-Succession Value
+>>-----------------------------
+Timestep 5
+StartYear 2020
+SeedingAlgorithm  NoDispersal
+
+>>WardSeedDispersal
+>>NoDispersal
+>>UniversalDispersal
+>>PNEToutputsites         SitePnETOutputall.txt
+
+InitialCommunities ../../ParametersCreation/initialCommunitiesComparisonPnETBioSuccession.txt 
+InitialCommunitiesMap ../../ParametersCreation/initialCommunitiesPnetAndBioSuccession.tif 
+PnETGenericParameters PnETGenericParameters.txt
+PnETSpeciesParameters PnETSpeciesParameters.txt
+EcoregionParameters EcoregionParameters.txt

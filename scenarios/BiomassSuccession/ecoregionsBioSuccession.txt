@@ -1,0 +1,6 @@
+LandisData Ecoregions
+>> Map
+>> Active Code Name Description
+>> ------ ---- ----- -----------
+yes 236 236 ""
+no  0   vide         "emptycells"         
