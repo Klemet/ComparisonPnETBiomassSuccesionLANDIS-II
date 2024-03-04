@@ -188,7 +188,7 @@ Formulas are from Material and methods.
 
 #%% READING DATA
 
-os.chdir(r"D:\OneDrive - UQAM\1 - Projets\Thèse - Comparaison PnET Biomass Succession\scenarios")
+os.chdir(r"D:\OneDrive - UQAM\1 - Projets\Thèse - Comparaison PnET Biomass Succession\ComparisonPnETBiomassSuccesionLANDIS-II\scenarios")
 
 # We want a dictionnary containing all of the rasters of biomass for every species
 # simulated; we'll use them to make our figures.
@@ -239,6 +239,10 @@ for extension in ["PnET", "BiomassSuccession"]:
 # Second : Biomass for each function group
 # It's simply the biomass per species, since we have only 5 species 
 # in the initial communities
+# WARNING : We must remove any pixels where the species was not implanted at first !
+# If not, it affects the means and shows a complementarity effect for pixels with more
+# species, as more species slot = more chances that the species is present = less zeroes.
+# We do that by detecting the pixels where the species = 0 at the beginning.
 speciesList = ["ABIE.BAL", "PICE.GLA", "PINU.BAN", "BETU.ALL", "POPU.TRE"]
 
 for species in speciesList:
@@ -251,8 +255,10 @@ for species in speciesList:
             dictVariablesValues["Biomass " + str(species)][extension][numberOfSpecies]["Mean"] = list()
             dictVariablesValues["Biomass " + str(species)][extension][numberOfSpecies]["SD"] = list()
             for timestep in range(0, 105, 5):
-                meanSumTimestepForRow = np.mean(biomassArraysResults[extension][species][timestep], axis = 1)[numberOfSpecies - 1]
-                sdForPixelsOfRow = np.std(biomassArraysResults[extension][species][timestep], axis = 1)[numberOfSpecies - 1]
+                if timestep == 0:
+                    pixelsWhereSpeciesIs = np.where(biomassArraysResults[extension][species][timestep][numberOfSpecies - 1] != 0)
+                meanSumTimestepForRow = np.mean(biomassArraysResults[extension][species][timestep][numberOfSpecies - 1][pixelsWhereSpeciesIs])
+                sdForPixelsOfRow = np.std(biomassArraysResults[extension][species][timestep][numberOfSpecies - 1][pixelsWhereSpeciesIs])
                 dictVariablesValues["Biomass " + str(species)][extension][numberOfSpecies]["Mean"].append(meanSumTimestepForRow)
                 dictVariablesValues["Biomass " + str(species)][extension][numberOfSpecies]["SD"].append(sdForPixelsOfRow)
 
@@ -620,7 +626,7 @@ def GetCustomLevelsOfFactors(resultDict, factor, variable):
     
 
 
-pathToSave = r"D:\OneDrive - UQAM\1 - Projets\Thèse - Comparaison PnET Biomass Succession\FiguresResults\\"
+pathToSave = r"D:\OneDrive - UQAM\1 - Projets\Thèse - Comparaison PnET Biomass Succession\ComparisonPnETBiomassSuccesionLANDIS-II\FiguresResults\\"
 
 GenerateGraphsOfResults(dictVariablesValues, 
                         variables,
